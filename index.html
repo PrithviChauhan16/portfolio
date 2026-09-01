@@ -6,9 +6,9 @@
     <title>Prithvi Chauhan | Web Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* --- CORE RESET & SCROLL FIX --- */
+       /* --- CORE RESET & SCROLL FIX --- */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        html { scroll-behavior: smooth; overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
         
         /* Only show custom cursor on computers. Prevents mobile touch glitches */
         @media (hover: hover) and (pointer: fine) { * { cursor: none; } }
@@ -43,7 +43,7 @@
 
         .section-divider { width: 150px; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); margin: 0 auto; }
 
-        /* --- DESKTOP NAV BAR --- */
+       /* --- DESKTOP NAV BAR --- */
         nav { 
             position: fixed; 
             top: 0; 
@@ -55,9 +55,7 @@
             justify-content: space-between; 
             align-items: center; 
             z-index: 10000; 
-            background: rgba(7, 7, 7, 0.55); 
-            backdrop-filter: blur(15px); 
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(7, 7, 7, 0.98); 
             border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
             box-sizing: border-box;
         }
@@ -157,11 +155,10 @@
             /* Hides the logo entirely from the layout */
             .logo { display: none !important; }
             
-            /* Pushes hamburger to the right and locks screen width */
-            nav { justify-content: flex-end !important; padding: 0 20px !important; width: 100vw !important; overflow: hidden; }
+          /* Pushes hamburger to the right and locks screen width */
+            nav { justify-content: flex-end !important; padding: 0 20px !important; width: 100vw !important; }
             .hamburger { display: block; z-index: 10002; margin-right: 10px; }
-
-            /* Fixes menu cropping by locking dimensions and using translate */
+            
             .nav-links { 
                 position: fixed; 
                 top: 0; 

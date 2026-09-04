@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -154,7 +154,12 @@
             .logo { display: none !important; }
             nav { justify-content: flex-end !important; padding: 0 20px !important; width: 100vw !important; }
             .hamburger { display: block; z-index: 10002; margin-right: 10px; }
-            
+            /* Hide custom cursor on touch devices */
+        @media (pointer: coarse) {
+            .cursor-dot, .cursor-outline {
+                display: none !important;
+            }
+        }
             .nav-links { 
                 position: fixed; 
                 top: 0; 

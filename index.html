@@ -79,7 +79,6 @@
             background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'); 
             background-size: cover; 
             background-position: center; 
-            /* Fixed attachment removed for mobile smoothness */
         }
         .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(7, 7, 7, 0.5), rgba(7, 7, 7, 1)); z-index: 1; }
         .hero-content { position: relative; z-index: 2; padding: 0 5%; width: 100%; }
@@ -152,10 +151,7 @@
 
         /* --- BULLETPROOF MOBILE OVERRIDES --- */
         @media (max-width: 768px) {
-            /* Hides the logo entirely from the layout */
             .logo { display: none !important; }
-            
-          /* Pushes hamburger to the right and locks screen width */
             nav { justify-content: flex-end !important; padding: 0 20px !important; width: 100vw !important; }
             .hamburger { display: block; z-index: 10002; margin-right: 10px; }
             
@@ -175,8 +171,6 @@
                 z-index: 10001; 
             }
             .nav-links.active { transform: translateX(0); }
-            
-            /* Prevents cropping by making buttons full width and centered */
             .nav-links a { font-size: 1.5rem; text-align: center; display: block; width: 100%; padding: 15px 0; }
 
             .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
@@ -198,7 +192,6 @@
     <div class="cursor-outline"></div>
 
     <nav>
-        <!-- The logo is hidden on mobile via CSS -->
         <a href="#" class="logo interactive-el">PC.</a>
         <div class="hamburger interactive-el">
             <span></span>
@@ -273,28 +266,28 @@
         <div class="grid">
             <div class="card reveal interactive-el" onclick="this.classList.toggle('show-btn')">
                 <div class="card-img-wrapper">
-                    <img src="rosella-preview.jpg.png" alt="Rosella Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1000&auto=format&fit=crop'">
+                    <img src="scalevir-preview.jpg.jpg" alt="Scalevir Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop'">
                 </div>
                 <div class="card-content">
-                    <h3 class="card-title">Rosella</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">A dynamic and responsive web experience showcasing modern UI/UX principles and clean architecture.</p>
+                    <h3 class="card-title">Scalevir Agency</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">A digital platform built for a marketing and events agency, designed to drive engagement and highlight curated live experiences. <br><br><em>(Note: This website will be redesigned soon.)</em></p>
                     <div class="card-footer">
                         <span class="tap-hint">Tap to view options &darr;</span>
-                        <a href="https://prithvichauhan16.github.io/rosella/" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
+                        <a href="https://www.scalevir.com/" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
                     </div>
                 </div>
             </div>
 
             <div class="card reveal interactive-el" onclick="this.classList.toggle('show-btn')">
                 <div class="card-img-wrapper">
-                    <img src="scalevir-preview.jpg.jpg" alt="Scalevir Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop'">
+                    <img src="pepekun-preview.jpg" alt="Pepe Kun Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1555529733-0e670560f4e1?q=80&w=1000&auto=format&fit=crop'">
                 </div>
                 <div class="card-content">
-                    <h3 class="card-title">Scalevir Agency</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">A digital platform built for a marketing and events agency, designed to drive engagement and highlight curated live experiences.</p>
+                    <h3 class="card-title">Pepe Kun</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">An immersive brand showcase and e-commerce platform developed for a custom plush toy line. <br><br><em>(Note: This website will be redesigned soon.)</em></p>
                     <div class="card-footer">
                         <span class="tap-hint">Tap to view options &darr;</span>
-                        <a href="https://www.scalevir.com/" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
+                        <a href="https://www.pepekun.com/" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
                     </div>
                 </div>
             </div>
@@ -305,7 +298,7 @@
                 <button id="openModalBtn" class="hero-cta" style="border: none; cursor: pointer; font-family: 'Inter', sans-serif;">View All Projects</button>
             </div>
         </div>
-    </section>	
+    </section>  
 
     <div class="section-divider"></div>
 
@@ -342,25 +335,11 @@
                 
                 <div class="card interactive-el" onclick="this.classList.toggle('show-btn')">
                     <div class="card-img-wrapper">
-                        <img src="rosella-preview.jpg.png" alt="Rosella Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1000&auto=format&fit=crop'">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Rosella</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">A dynamic and responsive web experience showcasing modern UI/UX principles and clean architecture.</p>
-                        <div class="card-footer">
-                            <span class="tap-hint">Tap to view options &darr;</span>
-                            <a href="https://prithvichauhan16.github.io/rosella/" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card interactive-el" onclick="this.classList.toggle('show-btn')">
-                    <div class="card-img-wrapper">
-                        <img src="scalevir-preview.jpg.jpg" alt="Scalevir Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop'">
+                        <img src="scalevir-preview.jpg.png" alt="Scalevir Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop'">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Scalevir Agency</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">A digital platform built for a marketing and events agency, designed to drive engagement and highlight curated live experiences.</p>
+                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">A digital platform built for a marketing and events agency, designed to drive engagement and highlight curated live experiences. <br><br><em>(Note: This website will be redesigned soon.)</em></p>
                         <div class="card-footer">
                             <span class="tap-hint">Tap to view options &darr;</span>
                             <a href="https://www.scalevir.com/" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
@@ -370,11 +349,39 @@
 
                 <div class="card interactive-el" onclick="this.classList.toggle('show-btn')">
                     <div class="card-img-wrapper">
-                        <img src="ram-studio-preview.jpg.jpg" alt="Ram Studio Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop'">
+                        <img src="pepekun-preview.jpg.png" alt="Pepe Kun Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1555529733-0e670560f4e1?q=80&w=1000&auto=format&fit=crop'">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Pepe Kun</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">An immersive brand showcase and e-commerce platform developed for a custom plush toy line. <br><br><em>(Note: This website will be redesigned soon.)</em></p>
+                        <div class="card-footer">
+                            <span class="tap-hint">Tap to view options &darr;</span>
+                            <a href="https://www.pepekun.com/" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card interactive-el" onclick="this.classList.toggle('show-btn')">
+                    <div class="card-img-wrapper">
+                        <img src="rosella-preview.jpg.png" alt="Rosella Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1000&auto=format&fit=crop'">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Rosella</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">A dynamic and responsive web experience showcasing modern UI/UX principles and clean architecture. <br><br><em>(Note: This was a practice project.)</em></p>
+                        <div class="card-footer">
+                            <span class="tap-hint">Tap to view options &darr;</span>
+                            <a href="https://prithvichauhan16.github.io/rosella/" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card interactive-el" onclick="this.classList.toggle('show-btn')">
+                    <div class="card-img-wrapper">
+                        <img src="ram-studio-preview.jpg.png" alt="Ram Studio Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop'">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Ram Studio</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">An elegant, highly-visual studio portfolio emphasizing smooth layouts and optimized presentation.</p>
+                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">An elegant, highly-visual studio portfolio emphasizing smooth layouts and optimized presentation. <br><br><em>(Note: This was a practice project.)</em></p>
                         <div class="card-footer">
                             <span class="tap-hint">Tap to view options &darr;</span>
                             <a href="https://prithvichauhan16.github.io/Ram-Studio/" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>

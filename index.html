@@ -508,10 +508,8 @@
         const botText = document.getElementById('botText');
         const shinchanQuotes = [
             "HELLO! Scroll up to check out all my latest projects!",
-            "Got any Chocobi? I code better with snacks.",
+            "Got any Chocochips? I code better with snacks.",
             "Are you looking to hire? I accept payment in Action Kamen figures!",
-            "Whoa, a visitor! Check out my work before my mom catches me!",
-            "Beep boop! I am a highly advanced web development assistant."
         ];
 
         botInteract.addEventListener('click', () => {
@@ -520,7 +518,7 @@
             botText.innerText = randomQuote;
             
             botInteract.classList.add('active');
-            setTimeout(() => { botInteract.classList.remove('active'); }, 4000);
+            setTimeout(() => { botInteract.classList.remove('active'); }, 6000);
         });
 
         function revealOnScroll() {

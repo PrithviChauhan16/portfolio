@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,12 +16,12 @@
         :root { 
             --primary: #ffffff; 
             --accent: #d4af37; 
-            --bg-color: #070707; 
+            --bg-color: #1a1a1a; /* Updated to lighter charcoal from #070707 */
             --text-main: #f8fafc; 
-            --text-muted: #a3a3a3; 
+            --text-muted: #b3b3b3; /* Brightened slightly for contrast */
             --btn-color: rgba(255, 255, 255, 0.85); 
             --btn-hover: #ffffff; 
-            --btn-text: #070707; 
+            --btn-text: #1a1a1a; /* Updated to match new bg */
         }
         
         body { 
@@ -55,7 +55,7 @@
             justify-content: space-between; 
             align-items: center; 
             z-index: 10000; 
-            background: rgba(7, 7, 7, 0.98); 
+            background: rgba(26, 26, 26, 0.98); /* Updated to match theme */
             border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
             box-sizing: border-box;
         }
@@ -80,7 +80,7 @@
             background-size: cover; 
             background-position: center; 
         }
-        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(7, 7, 7, 0.5), rgba(7, 7, 7, 1)); z-index: 1; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 1)); z-index: 1; } /* Updated overlay to match theme */
         .hero-content { position: relative; z-index: 2; padding: 0 5%; width: 100%; }
         
         .hero-subtitle { font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; color: var(--text-muted); opacity: 0; animation: fadeUp 1s ease 0.8s forwards; }
@@ -105,7 +105,7 @@
         .service-desc { font-size: 0.9rem; color: var(--text-muted); text-shadow: 0 1px 2px rgba(0,0,0,0.8); }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; }
-        .card { background: #111111; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; transition: all 0.5s ease; cursor: pointer; }
+        .card { background: #222222; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; transition: all 0.5s ease; cursor: pointer; } /* Updated from #111111 */
         .card:hover { transform: translateY(-10px); border-color: rgba(255,255,255,0.2); }
         .card-img-wrapper { overflow: hidden; height: 250px; }
         .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; opacity: 0.8; filter: grayscale(20%); }
@@ -123,9 +123,9 @@
 
         .view-more-container { text-align: center; margin-top: 4rem; }
         
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.95); z-index: 20000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; backdrop-filter: blur(10px); padding: 2rem; }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); z-index: 20000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; backdrop-filter: blur(10px); padding: 2rem; }
         .modal-overlay.active { opacity: 1; pointer-events: auto; }
-        .modal-content { background: #0a0a0a; width: 100%; max-width: 1200px; max-height: 90vh; overflow-y: auto; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); padding: 4rem 2rem; position: relative; }
+        .modal-content { background: #222222; width: 100%; max-width: 1200px; max-height: 90vh; overflow-y: auto; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); padding: 4rem 2rem; position: relative; } /* Updated from #0a0a0a */
         .close-modal { position: absolute; top: 20px; right: 30px; font-size: 2rem; color: var(--text-muted); cursor: pointer; transition: color 0.3s; background: none; border: none; }
         .close-modal:hover { color: var(--primary); }
 
@@ -134,7 +134,7 @@
         @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        footer { text-align: center; padding: 6rem 5%; background: rgba(0,0,0,0.5); }
+        footer { text-align: center; padding: 6rem 5%; background: rgba(0,0,0,0.3); }
         footer h2 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 2.5rem; margin-bottom: 1rem; }
         .contact-desc { color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8; }
         .contact-links { display: flex; justify-content: center; flex-wrap: wrap; margin-top: 3rem; gap: 3rem; }
@@ -166,7 +166,7 @@
                 left: 0; 
                 width: 100vw; 
                 height: 100vh; 
-                background: rgba(7,7,7,0.98); 
+                background: rgba(26,26,26,0.98); /* Updated to match theme */
                 flex-direction: column; 
                 justify-content: center; 
                 align-items: center; 
@@ -331,6 +331,7 @@
         <img src="shinchan1.jpg.png" alt="Shinchan Assistant" onerror="this.src='https://via.placeholder.com/120x150?text=Missing+Image'">
     </div>
 
+    <!-- MODAL WITH ADDED PROJECTS -->
     <div class="modal-overlay" id="projectsModal">
         <div class="modal-content interactive-el">
             <button class="close-modal" id="closeModalBtn">&times;</button>
@@ -344,7 +345,7 @@
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Scalevir Agency</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">A digital platform built for a marketing and events agency, designed to drive engagement and highlight curated live experiences. <br><br><em>(Note: This website will be redesigned soon.)</em></p>
+                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">A digital platform built for a marketing and events agency, designed to drive engagement and highlight curated live experiences.</p>
                         <div class="card-footer">
                             <span class="tap-hint">Tap to view options &darr;</span>
                             <a href="https://www.scalevir.com/" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
@@ -358,10 +359,55 @@
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Pepe Kun</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">An immersive brand showcase and e-commerce platform developed for a custom plush toy line. <br><br><em>(Note: This website will be redesigned soon.)</em></p>
+                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">An immersive brand showcase and e-commerce platform developed for a custom plush toy line.</p>
                         <div class="card-footer">
                             <span class="tap-hint">Tap to view options &darr;</span>
                             <a href="https://www.pepekun.com/" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEW PROJECT 1: PEPE FINAL -->
+                <div class="card interactive-el" onclick="this.classList.toggle('show-btn')">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1555529771-835f59bfc50c?q=80&w=1000&auto=format&fit=crop" alt="Pepe Kun Final Website" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Pepe Kun (Final)</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">The finalized iteration of the brand showcase and interactive storefront for the custom plush toy line.</p>
+                        <div class="card-footer">
+                            <span class="tap-hint">Tap to view options &darr;</span>
+                            <a href="https://prithvichauhan16.github.io/pepefinal/" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEW PROJECT 2: GUPTA SONS KOLHU -->
+                <div class="card interactive-el" onclick="this.classList.toggle('show-btn')">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1000&auto=format&fit=crop" alt="Gupta Sons Kolhu Website" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Gupta Sons Kolhu</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">An e-commerce storefront for traditional mustard oil and ghee, featuring seamless product catalog management.</p>
+                        <div class="card-footer">
+                            <span class="tap-hint">Tap to view options &darr;</span>
+                            <a href="https://prithvichauhan16.github.io/gupta-sons-kolhu/index.html" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEW PROJECT 3: CLINIC EXAMPLE -->
+                <div class="card interactive-el" onclick="this.classList.toggle('show-btn')">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1538108149393-cebb47acdd4e?q=80&w=1000&auto=format&fit=crop" alt="Clinic Example Website" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Clinic Web Interface</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">A clean, professional website template designed for medical clinics, focusing on accessibility and trust.</p>
+                        <div class="card-footer">
+                            <span class="tap-hint">Tap to view options &darr;</span>
+                            <a href="https://prithvichauhan16.github.io/clininc-exapmple//" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
                         </div>
                     </div>
                 </div>

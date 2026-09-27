@@ -16,12 +16,12 @@
         :root { 
             --primary: #ffffff; 
             --accent: #d4af37; 
-            --bg-color: #1e2024; /* Lighter sleek dark gray */
+            --bg-color: #16171a; 
             --text-main: #f8fafc; 
             --text-muted: #b0b3b8; 
-            --btn-color: rgba(255, 255, 255, 0.85); 
+            --btn-color: rgba(255, 255, 255, 0.95); 
             --btn-hover: #ffffff; 
-            --btn-text: #1e2024; 
+            --btn-text: #16171a; 
         }
         
         body { 
@@ -36,31 +36,40 @@
             background-size: 50px 50px;
         }
 
-        .cursor-dot, .cursor-outline { position: fixed; top: 0; left: 0; transform: translate(-50%, -50%); border-radius: 50%; z-index: 99999; pointer-events: none; }
-        .cursor-dot { width: 8px; height: 8px; background-color: var(--primary); }
-        .cursor-outline { width: 40px; height: 40px; border: 1px solid rgba(255, 255, 255, 0.5); transition: width 0.2s, height 0.2s, background-color 0.2s; }
+        /* Highly Optimized Custom Cursor */
+        .cursor-dot, .cursor-outline { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 99999; will-change: transform; }
+        .cursor-dot { width: 8px; height: 8px; background-color: var(--primary); border-radius: 50%; }
+        .cursor-outline { width: 40px; height: 40px; border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 50%; transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s; }
         .cursor-hover .cursor-outline { width: 60px; height: 60px; background-color: rgba(255, 255, 255, 0.1); border-color: transparent; }
 
-        .section-divider { width: 150px; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); margin: 0 auto; }
+        /* FULL WIDTH SECTION BACKGROUNDS (NO LAG) */
+        .section-wrapper { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; }
+        
+        .bg-expertise { 
+            background-color: #22242a; 
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            box-shadow: inset 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .bg-portfolio { 
+            background-color: #0e0f11; 
+            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            border-top: 1px solid rgba(255,255,255,0.02);
+            border-bottom: 1px solid rgba(255,255,255,0.02);
+            box-shadow: inset 0 10px 30px rgba(0,0,0,0.2);
+        }
 
        /* --- DESKTOP NAV BAR --- */
         nav { 
-            position: fixed; 
-            top: 0; 
-            left: 0;
-            width: 100vw; 
-            height: 80px;
-            padding: 0 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            z-index: 10000; 
-            background: rgba(30, 32, 36, 0.98); 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
-            box-sizing: border-box;
+            position: fixed; top: 0; left: 0; width: 100vw; height: 80px; padding: 0 5%; display: flex; justify-content: space-between; align-items: center; z-index: 10000; 
+            background: rgba(22, 23, 26, 0.98); border-bottom: 1px solid rgba(255, 255, 255, 0.08); box-sizing: border-box;
         }
 
-        .logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--primary); text-decoration: none; letter-spacing: 2px; z-index: 101; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--primary); text-decoration: none; letter-spacing: 2px; z-index: 101; font-weight: 700; }
         .nav-links { display: flex; gap: 2.5rem; }
         .nav-links a { text-decoration: none; color: var(--primary); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; transition: opacity 0.3s; }
         .nav-links a:hover { opacity: 1; }
@@ -69,65 +78,59 @@
 
         /* --- HERO SECTION --- */
         .hero { 
-            position: relative; 
-            height: calc(100dvh - 80px); 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            text-align: center; 
-            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'); 
-            background-size: cover; 
-            background-position: center; 
+            position: relative; height: calc(100dvh - 80px); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; 
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'); background-size: cover; background-position: center; 
         }
-        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(30, 32, 36, 0.5), rgba(30, 32, 36, 1)); z-index: 1; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(22, 23, 26, 0.6), rgba(22, 23, 26, 1)); z-index: 1; }
         .hero-content { position: relative; z-index: 2; padding: 0 5%; width: 100%; }
         
         .hero-subtitle { font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; color: var(--text-muted); opacity: 0; animation: fadeUp 1s ease 0.8s forwards; }
         .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 6rem); font-weight: 400; color: var(--primary); letter-spacing: -1px; margin: 1rem 0; opacity: 0; animation: fadeUp 1s ease 1s forwards; }
-        .hero-desc { color: var(--text-muted); max-width: 500px; margin: 0 auto; opacity: 0; animation: fadeUp 1s ease 1.2s forwards; }
         
-        .magnetic-btn-wrapper { display: inline-block; padding: 1.5rem; opacity: 0; animation: fadeIn 1s ease 1.6s forwards; }
+        /* Typing Effect Container */
+        .hero-desc { color: var(--text-muted); max-width: 500px; margin: 0 auto; min-height: 50px; font-size: 1.05rem; }
+        .typewriter-text { border-right: 2px solid var(--primary); white-space: pre-wrap; animation: blinkCursor 0.75s step-end infinite; }
+        @keyframes blinkCursor { from, to { border-color: transparent } 50% { border-color: var(--primary); } }
         
+        .magnetic-btn-wrapper { display: inline-block; padding: 1.5rem; opacity: 0; animation: fadeIn 1s ease 2s forwards; }
         .hero-cta { display: inline-block; padding: 1rem 3rem; background-color: var(--btn-color); color: var(--btn-text); text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .hero-cta:hover { background-color: var(--btn-hover); transform: scale(1.05) translateY(-2px); box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2); }
 
         /* --- SECTIONS --- */
         .section { padding: 6rem 5%; max-width: 1200px; margin: 0 auto; }
-        .section-title { font-family: 'Playfair Display', serif; text-align: center; font-size: clamp(2rem, 5vw, 3rem); font-weight: 400; margin-bottom: 4rem; }
+        .section-title { font-family: 'Playfair Display', serif; text-align: center; font-size: clamp(2rem, 5vw, 3rem); font-weight: 400; margin-bottom: 4rem; color: var(--primary); }
+        
         .about-content { max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.15rem; color: var(--text-muted); line-height: 1.8; }
         .about-content strong { color: var(--primary); font-weight: 400; }
         
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .service-card { border: 1px solid rgba(255,255,255,0.05); padding: 3rem 2rem; text-align: center; backdrop-filter: blur(10px); border-radius: 20px; transition: transform 0.4s, border-color 0.4s; }
+        .service-card { border: 1px solid rgba(255,255,255,0.05); padding: 3rem 2rem; text-align: center; border-radius: 20px; transition: transform 0.4s, border-color 0.4s; background-color: #1b1d22; }
         .service-card:hover { transform: translateY(-10px); border-color: rgba(255,255,255,0.2); }
-        .service-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 1rem; color: var(--primary); text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
-        .service-desc { font-size: 0.9rem; color: var(--text-muted); text-shadow: 0 1px 2px rgba(0,0,0,0.8); }
+        .service-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 1rem; color: var(--primary); }
+        .service-desc { font-size: 0.9rem; color: var(--text-muted); }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; }
-        .card { background: #2a2d34; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; transition: all 0.5s ease; cursor: pointer; }
-        .card:hover { transform: translateY(-10px); border-color: rgba(255,255,255,0.2); }
-        .card-img-wrapper { overflow: hidden; height: 250px; }
+        /* --- PROJECTS GRID (3 Columns PC with 3D Tilt) --- */
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; perspective: 1000px; }
+        
+        .card { background: #1a1c20; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; transition: transform 0.1s ease, border-color 0.3s ease, box-shadow 0.3s ease; position: relative; will-change: transform; transform-style: preserve-3d; }
+        .card.reset-tilt { transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        
+        .card:hover { border-color: rgba(255,255,255,0.2); box-shadow: 0 15px 35px rgba(0,0,0,0.5); z-index: 10; }
+        
+        .card-img-wrapper { overflow: hidden; height: 230px; transform: translateZ(20px); }
         .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; opacity: 0.8; filter: grayscale(20%); }
         .card:hover .card-img { transform: scale(1.05); opacity: 1; filter: grayscale(0%); }
-        .card-content { padding: 2.5rem; }
-        .card-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 400; }
         
-        .card-footer { position: relative; height: 40px; margin-top: 1rem; }
-        .tap-hint { position: absolute; top: 0; left: 0; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; transition: opacity 0.3s ease, transform 0.3s ease; }
-        .open-btn { position: absolute; top: -5px; left: 0; opacity: 0; transform: translateY(-10px); pointer-events: none; display: inline-block; padding: 0.6rem 1.5rem; background-color: var(--btn-color); color: var(--btn-text); text-decoration: none; border-radius: 50px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .card-content { padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 230px); transform: translateZ(30px); }
+        .card-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 0.8rem; font-weight: 400; color: var(--primary); }
+        .card-desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; flex-grow: 1; }
         
-        .card.show-btn .tap-hint { opacity: 0; transform: translateY(10px); pointer-events: none; }
-        .card.show-btn .open-btn { opacity: 1; transform: translateY(0); pointer-events: auto; }
-        .open-btn:hover { background-color: var(--btn-hover); transform: scale(1.05); }
-
-        .view-more-container { text-align: center; margin-top: 4rem; }
+        .card-footer { display: flex; justify-content: flex-start; align-items: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); transform: translateZ(40px); }
+        .open-btn { display: inline-flex; align-items: center; gap: 8px; padding: 0.6rem 1.2rem; background-color: rgba(255,255,255,0.05); color: var(--text-main); text-decoration: none; border-radius: 50px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .open-btn::after { content: '↗'; font-size: 1.1rem; font-weight: 400; transition: transform 0.4s ease; }
         
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); z-index: 20000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; backdrop-filter: blur(10px); padding: 2rem; }
-        .modal-overlay.active { opacity: 1; pointer-events: auto; }
-        .modal-content { background: #2a2d34; width: 100%; max-width: 1200px; max-height: 90vh; overflow-y: auto; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); padding: 4rem 2rem; position: relative; }
-        .close-modal { position: absolute; top: 20px; right: 30px; font-size: 2rem; color: var(--text-muted); cursor: pointer; transition: color 0.3s; background: none; border: none; }
-        .close-modal:hover { color: var(--primary); }
+        .card:hover .open-btn { background-color: var(--btn-color); color: var(--btn-text); transform: scale(1.05); }
+        .card:hover .open-btn::after { transform: translate(3px, -3px); }
 
         .reveal { opacity: 0; transform: translateY(40px); transition: all 1s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -135,45 +138,38 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         footer { text-align: center; padding: 6rem 5%; background: rgba(0,0,0,0.3); }
-        footer h2 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 2.5rem; margin-bottom: 1rem; }
+        footer h2 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 2.5rem; margin-bottom: 1rem; color: var(--primary); }
         .contact-desc { color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8; }
         .contact-links { display: flex; justify-content: center; flex-wrap: wrap; margin-top: 3rem; gap: 3rem; }
 
         .shinchan-bot { position: fixed; bottom: 20px; right: 20px; width: 100px; height: auto; z-index: 1000; cursor: pointer; animation: floatShin 3s ease-in-out infinite; }
-        .shinchan-bot img { width: 100%; height: auto; display: block; filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.5)); }
+        .shinchan-bot img { width: 100%; height: auto; display: block; filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.5)); transition: transform 0.2s; }
+        .shinchan-bot:hover img { transform: scale(1.1); }
         
         .bot-chat-bubble { position: absolute; bottom: 100%; right: 0; margin-bottom: 15px; background: #ffffff; color: #000000; padding: 12px 15px; border-radius: 15px; font-size: 0.85rem; font-weight: 600; width: 220px; line-height: 1.4; text-align: right; opacity: 0; transform: translateY(10px) scale(0.9); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); pointer-events: none; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: -1; }
         .bot-chat-bubble::after { content: ''; position: absolute; bottom: -8px; right: 25px; border-width: 8px 8px 0; border-style: solid; border-color: #ffffff transparent transparent transparent; }
         
-        @media (hover: hover) { .shinchan-bot:hover .bot-chat-bubble { opacity: 1; transform: translateY(0) scale(1); } }
         .shinchan-bot.active .bot-chat-bubble { opacity: 1; transform: translateY(0) scale(1); }
         @keyframes floatShin { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
         /* --- BULLETPROOF MOBILE OVERRIDES --- */
+        @media (max-width: 1024px) {
+            .grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
         @media (max-width: 768px) {
             .logo { display: none !important; }
             nav { justify-content: flex-end !important; padding: 0 20px !important; width: 100vw !important; }
             .hamburger { display: block; z-index: 10002; margin-right: 10px; }
+            
             /* Hide custom cursor on touch devices */
-        @media (pointer: coarse) {
-            .cursor-dot, .cursor-outline {
-                display: none !important;
-            }
-        }
+            @media (pointer: coarse) { .cursor-dot, .cursor-outline { display: none !important; } }
+            
             .nav-links { 
-                position: fixed; 
-                top: 0; 
-                left: 0; 
-                width: 100vw; 
-                height: 100vh; 
-                background: rgba(30, 32, 36, 0.98); 
-                flex-direction: column; 
-                justify-content: center; 
-                align-items: center; 
-                gap: 3rem; 
-                transform: translateX(100%); 
-                transition: transform 0.4s ease-in-out; 
-                z-index: 10001; 
+                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; 
+                background: rgba(22, 23, 26, 0.98); 
+                flex-direction: column; justify-content: center; align-items: center; 
+                gap: 3rem; transform: translateX(100%); transition: transform 0.4s ease-in-out; z-index: 10001; 
             }
             .nav-links.active { transform: translateX(0); }
             .nav-links a { font-size: 1.5rem; text-align: center; display: block; width: 100%; padding: 15px 0; }
@@ -184,6 +180,27 @@
 
             .hero h1 { font-size: 3rem; }
             .section { padding: 4rem 5%; overflow-x: hidden; }
+            
+            /* Disable 3D tilt on mobile for performance */
+            .card { transform: none !important; transition: transform 0.3s ease !important; }
+            
+            /* --- MOBILE 2-COLUMN GRID FIX --- */
+            .grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .card { border-radius: 12px; }
+            .card-img-wrapper { height: 120px; transform: none; }
+            .card-content { padding: 1rem; transform: none; }
+            .card-title { font-size: 1rem; margin-bottom: 0.5rem; }
+            .card-desc { 
+                font-size: 0.75rem !important; 
+                display: -webkit-box; 
+                -webkit-line-clamp: 3; 
+                -webkit-box-orient: vertical; 
+                overflow: hidden; 
+            }
+            .card-footer { padding-top: 1rem; margin-top: 1rem; transform: none; }
+            .open-btn { padding: 0.4rem 0.8rem; font-size: 0.65rem; background-color: rgba(255,255,255,0.1); width: 100%; justify-content: center; }
+            .open-btn::after { font-size: 0.8rem; }
+
             .contact-links { flex-direction: column; align-items: stretch; gap: 1rem; width: 100%; }
             .magnetic-btn-wrapper { padding: 0; width: 100%; }
             .hero-cta { display: block; width: 100%; text-align: center; }
@@ -215,40 +232,38 @@
         <div class="hero-content">
             <p class="hero-subtitle">Digital Craftsmanship</p>
             <h1>Prithvi Chauhan</h1>
-            <p class="hero-desc">
-                Engineering sophisticated web experiences and digital architecture for modern businesses.
-            </p>
+            <div class="hero-desc">
+                <span class="typewriter-text" id="typewriter"></span>
+            </div>
             <div class="magnetic-btn-wrapper interactive-el" style="margin-top: 1.5rem;">
                 <a href="#work" class="hero-cta">Explore Work</a>
             </div>
         </div>
     </section>
 
-    <div class="section-divider"></div>
-
-   <section id="services" class="section reveal">
-        <h2 class="section-title">Digital Expertise</h2>
-        <div class="services-grid">
-            
-            <div class="service-card interactive-el" style="background: linear-gradient(rgba(30, 32, 36, 0.65), rgba(30, 32, 36, 0.85)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=600&auto=format&fit=crop&blur=50'); background-size: cover; background-position: center;">
-                <h3 class="service-title">Web Development</h3>
-                <p class="service-desc">Building fast, responsive, and robust websites using clean code and modern frameworks.</p>
+    <div class="section-wrapper bg-expertise">
+        <section id="services" class="section reveal">
+            <h2 class="section-title">Digital Expertise</h2>
+            <div class="services-grid">
+                
+                <div class="service-card interactive-el" style="background: linear-gradient(rgba(34, 36, 42, 0.65), rgba(34, 36, 42, 0.85)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=600&auto=format&fit=crop&blur=50'); background-size: cover; background-position: center;">
+                    <h3 class="service-title">Web Development</h3>
+                    <p class="service-desc">Building fast, responsive, and robust websites using clean code and modern frameworks.</p>
+                </div>
+                
+                <div class="service-card interactive-el" style="background: linear-gradient(rgba(34, 36, 42, 0.65), rgba(34, 36, 42, 0.85)), url('https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=600&auto=format&fit=crop&blur=50'); background-size: cover; background-position: center;">
+                    <h3 class="service-title">UI / UX Layouts</h3>
+                    <p class="service-desc">Designing intuitive user interfaces that capture attention and drive customer conversions.</p>
+                </div>
+                
+                <div class="service-card interactive-el" style="background: linear-gradient(rgba(34, 36, 42, 0.65), rgba(34, 36, 42, 0.85)), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=600&auto=format&fit=crop&blur=50'); background-size: cover; background-position: center;">
+                    <h3 class="service-title">Technical Architecture</h3>
+                    <p class="service-desc">Structuring backend databases and applying object-oriented design principles for seamless flow.</p>
+                </div>
+                
             </div>
-            
-            <div class="service-card interactive-el" style="background: linear-gradient(rgba(30, 32, 36, 0.65), rgba(30, 32, 36, 0.85)), url('https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=600&auto=format&fit=crop&blur=50'); background-size: cover; background-position: center;">
-                <h3 class="service-title">UI / UX Layouts</h3>
-                <p class="service-desc">Designing intuitive user interfaces that capture attention and drive customer conversions.</p>
-            </div>
-            
-            <div class="service-card interactive-el" style="background: linear-gradient(rgba(30, 32, 36, 0.65), rgba(30, 32, 36, 0.85)), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=600&auto=format&fit=crop&blur=50'); background-size: cover; background-position: center;">
-                <h3 class="service-title">Technical Architecture</h3>
-                <p class="service-desc">Structuring backend databases and applying object-oriented design principles for seamless flow.</p>
-            </div>
-            
-        </div>
-    </section>
-
-    <div class="section-divider"></div>
+        </section>
+    </div>
 
     <section id="about" class="section reveal">
         <h2 class="section-title">About Me</h2>
@@ -263,49 +278,106 @@
         </div>
     </section>
 
-    <div class="section-divider"></div>
-
-   <section id="work" class="section">
-        <h2 class="section-title reveal">Curated Projects</h2>
-        
-        <div class="grid">
-            <div class="card reveal interactive-el" onclick="this.classList.toggle('show-btn')">
-                <div class="card-img-wrapper">
-                    <img src="scalevir-preview.jpg.png" alt="Scalevir Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop'">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Scalevir Agency</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">A digital platform built for a marketing and events agency, designed to drive engagement and highlight curated live experiences. <br><br><em>(Note: This website will be redesigned soon.)</em></p>
-                    <div class="card-footer">
-                        <span class="tap-hint">Tap to view options &darr;</span>
-                        <a href="https://www.scalevir.com/" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
+    <div class="section-wrapper bg-portfolio">
+        <section id="work" class="section reveal">
+            <h2 class="section-title">Complete Portfolio</h2>
+            
+            <div class="grid">
+                
+                <div class="card interactive-el">
+                    <div class="card-img-wrapper">
+                        <img src="scalevir-preview.jpg.png" alt="Scalevir Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop'">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Scalevir Agency</h3>
+                        <p class="card-desc">A digital platform built for a marketing and events agency, designed to drive engagement and highlight curated live experiences.</p>
+                        <div class="card-footer">
+                            <a href="https://www.scalevir.com/" target="_blank" rel="noopener noreferrer" class="open-btn">View Site</a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="card reveal interactive-el" onclick="this.classList.toggle('show-btn')">
-                <div class="card-img-wrapper">
-                    <img src="pepekun-preview.jpg.png" alt="Pepe Kun Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1555529733-0e670560f4e1?q=80&w=1000&auto=format&fit=crop'">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Pepe Kun</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">An immersive brand showcase and e-commerce platform developed for a custom plush toy line. <br><br><em>(Note: This website will be redesigned soon.)</em></p>
-                    <div class="card-footer">
-                        <span class="tap-hint">Tap to view options &darr;</span>
-                        <a href="https://www.pepekun.com/" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
+                <div class="card interactive-el">
+                    <div class="card-img-wrapper">
+                        <img src="pepefinal-preview.jpg.png" alt="Pepe Final Build Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1000&auto=format&fit=crop'">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Pepe Kun (Final)</h3>
+                        <p class="card-desc">The finalized iteration of the brand showcase and interactive e-commerce platform for the custom plush toy line.</p>
+                        <div class="card-footer">
+                            <a href="https://prithvichauhan16.github.io/pepefinal/" target="_blank" rel="noopener noreferrer" class="open-btn">View Site</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="view-more-container reveal">
-            <div class="magnetic-btn-wrapper interactive-el">
-                <button id="openModalBtn" class="hero-cta" style="border: none; cursor: pointer; font-family: 'Inter', sans-serif;">View All Projects</button>
-            </div>
-        </div>
-    </section>  
+                <div class="card interactive-el">
+                    <div class="card-img-wrapper">
+                        <img src="gupta-sons-preview.jpg.png" alt="Gupta Sons Kolhu Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1000&auto=format&fit=crop'">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Gupta Sons</h3>
+                        <p class="card-desc">A complete e-commerce storefront featuring product catalog management, a shopping cart system, and dynamic local storage features.</p>
+                        <div class="card-footer">
+                            <a href="https://prithvichauhan16.github.io/gupta-sons-kolhu/index.html" target="_blank" rel="noopener noreferrer" class="open-btn">View Site</a>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="section-divider"></div>
+                <div class="card interactive-el">
+                    <div class="card-img-wrapper">
+                        <img src="clinic-preview.jpg.png" alt="Clinic Interface" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=1000&auto=format&fit=crop'">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Clinic Web App</h3>
+                        <p class="card-desc">A clean, modern web experience designed for a healthcare clinic to present services and engage with patients efficiently.</p>
+                        <div class="card-footer">
+                            <a href="https://prithvichauhan16.github.io/clininc-exapmple//" target="_blank" rel="noopener noreferrer" class="open-btn">View Site</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card interactive-el">
+                    <div class="card-img-wrapper">
+                        <img src="pepekun-preview.jpg.png" alt="Pepe Kun Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1555529733-0e670560f4e1?q=80&w=1000&auto=format&fit=crop'">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Pepe Kun (V1)</h3>
+                        <p class="card-desc">The original immersive brand showcase developed for the custom plush toy line before the final redesign.</p>
+                        <div class="card-footer">
+                            <a href="https://www.pepekun.com/" target="_blank" rel="noopener noreferrer" class="open-btn">View Site</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card interactive-el">
+                    <div class="card-img-wrapper">
+                        <img src="rosella-preview.jpg.png" alt="Rosella Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1000&auto=format&fit=crop'">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Rosella</h3>
+                        <p class="card-desc">A dynamic and responsive web experience showcasing modern UI/UX principles and clean architecture.</p>
+                        <div class="card-footer">
+                            <a href="https://prithvichauhan16.github.io/rosella/" target="_blank" rel="noopener noreferrer" class="open-btn">View Site</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card interactive-el">
+                    <div class="card-img-wrapper">
+                        <img src="ram-studio-preview.jpg.png" alt="Ram Studio Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop'">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Ram Studio</h3>
+                        <p class="card-desc">An elegant, highly-visual studio portfolio emphasizing smooth layouts and optimized presentation.</p>
+                        <div class="card-footer">
+                            <a href="https://prithvichauhan16.github.io/Ram-Studio/" target="_blank" rel="noopener noreferrer" class="open-btn">View Site</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>  
+    </div>
 
     <footer id="contact" class="reveal">
         <h2>Let's Build Something Great.</h2>
@@ -318,7 +390,7 @@
                 <a href="mailto:pepekun.w@gmail.com" class="hero-cta">Email</a>
             </div>
             <div class="magnetic-btn-wrapper interactive-el">
-                <a href="tel:+91 8920349539" class="hero-cta">Contact</a>
+                <a href="tel:+918920349539" class="hero-cta">Contact</a>
             </div>
             <div class="magnetic-btn-wrapper interactive-el">
                 <a href="https://www.instagram.com/prithvi_chauhan16?igsi=MWMyMzdpYjR2NXRhMA==" target="_blank" rel="noopener noreferrer" class="hero-cta">Instagram</a>
@@ -327,143 +399,26 @@
     </footer>
 
     <div class="shinchan-bot interactive-el" id="botInteract">
-        <div class="bot-chat-bubble">HELLO! To see my previous projects please tap on 'work' at top right!</div>
+        <div class="bot-chat-bubble" id="botText">HELLO! Scroll up to check out all my latest projects!</div>
         <img src="shinchan1.jpg.png" alt="Shinchan Assistant" onerror="this.src='https://via.placeholder.com/120x150?text=Missing+Image'">
     </div>
 
-    <div class="modal-overlay" id="projectsModal">
-        <div class="modal-content interactive-el">
-            <button class="close-modal" id="closeModalBtn">&times;</button>
-            <h2 class="section-title" style="margin-bottom: 3rem;">Complete Portfolio</h2>
-            
-            <div class="grid" id="modalGrid">
-                
-                <div class="card interactive-el" onclick="this.classList.toggle('show-btn')">
-                    <div class="card-img-wrapper">
-                        <img src="scalevir-preview.jpg.png" alt="Scalevir Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop'">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Scalevir Agency</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">A digital platform built for a marketing and events agency, designed to drive engagement and highlight curated live experiences.</p>
-                        <div class="card-footer">
-                            <span class="tap-hint">Tap to view options &darr;</span>
-                            <a href="https://www.scalevir.com/" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card interactive-el" onclick="this.classList.toggle('show-btn')">
-                    <div class="card-img-wrapper">
-                        <img src="pepekun-preview.jpg.png" alt="Pepe Kun Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1555529733-0e670560f4e1?q=80&w=1000&auto=format&fit=crop'">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Pepe Kun</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">An immersive brand showcase and e-commerce platform developed for a custom plush toy line.</p>
-                        <div class="card-footer">
-                            <span class="tap-hint">Tap to view options &darr;</span>
-                            <a href="https://www.pepekun.com/" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- NEW ADDITION 1 -->
-                <div class="card interactive-el" onclick="this.classList.toggle('show-btn')">
-                    <div class="card-img-wrapper">
-                        <img src="pepefinal-preview.jpg.png" alt="Pepe Final Build Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1000&auto=format&fit=crop'">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Pepe Kun (Final Build)</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">The finalized iteration of the brand showcase and interactive e-commerce platform for the custom plush toy line.</p>
-                        <div class="card-footer">
-                            <span class="tap-hint">Tap to view options &darr;</span>
-                            <a href="https://prithvichauhan16.github.io/pepefinal/" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- NEW ADDITION 2 -->
-                <div class="card interactive-el" onclick="this.classList.toggle('show-btn')">
-                    <div class="card-img-wrapper">
-                        <img src="gupta-sons-preview.jpg.png" alt="Gupta Sons Kolhu Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1000&auto=format&fit=crop'">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Gupta Sons Kolhu</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">A complete e-commerce storefront featuring product catalog management, a shopping cart system, and dynamic local storage features.</p>
-                        <div class="card-footer">
-                            <span class="tap-hint">Tap to view options &darr;</span>
-                            <a href="https://prithvichauhan16.github.io/gupta-sons-kolhu/index.html" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- NEW ADDITION 3 -->
-                <div class="card interactive-el" onclick="this.classList.toggle('show-btn')">
-                    <div class="card-img-wrapper">
-                        <img src="clinic-preview.jpg.png" alt="Clinic Interface" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=1000&auto=format&fit=crop'">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Clinic Web Interface</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">A clean, modern web experience designed for a healthcare clinic to present services and engage with patients efficiently.</p>
-                        <div class="card-footer">
-                            <span class="tap-hint">Tap to view options &darr;</span>
-                            <a href="https://prithvichauhan16.github.io/clininc-exapmple//" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card interactive-el" onclick="this.classList.toggle('show-btn')">
-                    <div class="card-img-wrapper">
-                        <img src="rosella-preview.jpg.png" alt="Rosella Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1000&auto=format&fit=crop'">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Rosella</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">A dynamic and responsive web experience showcasing modern UI/UX principles and clean architecture. <br><br><em>(Note: This was a practice project.)</em></p>
-                        <div class="card-footer">
-                            <span class="tap-hint">Tap to view options &darr;</span>
-                            <a href="https://prithvichauhan16.github.io/rosella/" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card interactive-el" onclick="this.classList.toggle('show-btn')">
-                    <div class="card-img-wrapper">
-                        <img src="ram-studio-preview.jpg.png" alt="Ram Studio Website" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop'">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Ram Studio</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">An elegant, highly-visual studio portfolio emphasizing smooth layouts and optimized presentation. <br><br><em>(Note: This was a practice project.)</em></p>
-                        <div class="card-footer">
-                            <span class="tap-hint">Tap to view options &darr;</span>
-                            <a href="https://prithvichauhan16.github.io/Ram-Studio/" target="_blank" rel="noopener noreferrer" class="open-btn" onclick="event.stopPropagation()">Visit Website</a>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-
     <script>
-        const modal = document.getElementById('projectsModal');
-        const openModalBtn = document.getElementById('openModalBtn');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-
-        openModalBtn.addEventListener('click', () => {
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; 
-        });
-
-        closeModalBtn.addEventListener('click', () => {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto'; 
-        });
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
+        // TYPEWRITER EFFECT
+        const textToType = "Engineering sophisticated web experiences and digital architecture for modern businesses.";
+        const typeWriterElement = document.getElementById("typewriter");
+        let i = 0;
+        
+        function typeWriter() {
+            if (i < textToType.length) {
+                typeWriterElement.innerHTML += textToType.charAt(i);
+                i++;
+                setTimeout(typeWriter, 40); // typing speed
             }
-        });
+        }
+        // Start typing after a short delay
+        setTimeout(typeWriter, 1200);
+
 
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
@@ -485,15 +440,25 @@
         const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 
         if (!isTouchDevice) {
+            // OPTIMIZED CURSOR
+            let mouseX = 0, mouseY = 0;
+            let outlineX = 0, outlineY = 0;
+            
             window.addEventListener('mousemove', (e) => {
-                const posX = e.clientX;
-                const posY = e.clientY;
-                dot.style.left = `${posX}px`;
-                dot.style.top = `${posY}px`;
-                outline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 150, fill: "forwards" });
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                dot.style.transform = `translate3d(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%), 0)`;
             });
 
-            const interactiveEls = document.querySelectorAll('.interactive-el, a, button');
+            function animateCursor() {
+                outlineX += (mouseX - outlineX) * 0.2;
+                outlineY += (mouseY - outlineY) * 0.2;
+                outline.style.transform = `translate3d(calc(${outlineX}px - 50%), calc(${outlineY}px - 50%), 0)`;
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+
+            const interactiveEls = document.querySelectorAll('.interactive-el, a, button, .card');
             interactiveEls.forEach(el => {
                 el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
                 el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
@@ -505,22 +470,57 @@
                     const position = element.getBoundingClientRect();
                     const x = e.clientX - position.left - position.width / 2;
                     const y = e.clientY - position.top - position.height / 2;
-                    element.children[0].style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+                    element.children[0].style.transform = `translate3d(${x * 0.3}px, ${y * 0.3}px, 0)`;
                 });
                 element.addEventListener('mouseleave', () => {
-                    element.children[0].style.transform = 'translate(0px, 0px)';
+                    element.children[0].style.transform = 'translate3d(0px, 0px, 0)';
                     element.children[0].style.transition = 'transform 0.3s ease';
                 });
                 element.addEventListener('mouseenter', () => {
                     element.children[0].style.transition = 'none';
                 });
             });
+
+            // FUN 3D TILT EFFECT FOR CARDS (DESKTOP ONLY)
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    card.classList.remove('reset-tilt');
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((y - centerY) / centerY) * -8; // max 8 deg
+                    const rotateY = ((x - centerX) / centerX) * 8;
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.classList.add('reset-tilt');
+                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+                });
+            });
         }
 
+        // FUN RANDOMIZED SHINCHAN BOT
         const botInteract = document.getElementById('botInteract');
+        const botText = document.getElementById('botText');
+        const shinchanQuotes = [
+            "HELLO! Scroll up to check out all my latest projects!",
+            "Got any Chocobi? I code better with snacks.",
+            "Are you looking to hire? I accept payment in Action Kamen figures!",
+            "Whoa, a visitor! Check out my work before my mom catches me!",
+            "Beep boop! I am a highly advanced web development assistant."
+        ];
+
         botInteract.addEventListener('click', () => {
+            // Pick a random quote
+            const randomQuote = shinchanQuotes[Math.floor(Math.random() * shinchanQuotes.length)];
+            botText.innerText = randomQuote;
+            
             botInteract.classList.add('active');
-            setTimeout(() => { botInteract.classList.remove('active'); }, 3000);
+            setTimeout(() => { botInteract.classList.remove('active'); }, 4000);
         });
 
         function revealOnScroll() {
